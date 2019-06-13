@@ -7,7 +7,6 @@ USE bamazon;
 -- 2. Then create a Table inside of that database called `products`.
 CREATE TABLE products(
     -- 3. The products table should have each of the following columns:
-    id INT NOT NULL AUTO_INCREMENT,
     --   * item_id (unique id for each product)
     item_id INT NULL,
     --   * product_name (Name of product)
@@ -17,8 +16,7 @@ CREATE TABLE products(
     --   * price (cost to customer)
     price DECIMAL(10,4) NULL,
     --   * stock_quantity (how much of the product is available in stores)
-    stock_quantity INT NULL,
-    PRIMARY KEY(id)
+    stock_quantity INT NULL
 );
 
 -- 4. Populate this database with around 10 different products. (i.e. Insert "mock" data rows into this database and table).
@@ -50,6 +48,7 @@ INSERT INTO products(item_id, product_name, department_name, price, stock_quanti
 VALUES (333, "Lord of the Rings Extended Trilogy", "Works from God", 50.99, 100);
 
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity)
-VALUES()
+VALUES(421, "Ben & Jerry's Half Baked Ice Cream", "Food", 3.99, 50);
 
+SELECT * FROM products;
 
