@@ -47,9 +47,10 @@ function products(){
     connection.query(query, function(err, res){
         if(err) throw err;
         for (ele in res){
-            console.log("| ID:\t" + res[ele].item_id + "\t || Name:\t" + res[ele].product_name + "\n| Price: $" + res[ele].price + "\t || Quantity:\t" + res[ele].stock_quantity);
-            console.log("-------------------------------------------------\n");
+            console.log("-------------------------------------------------");
+            console.log("| ID:\t" + res[ele].item_id + "\t || Name:\t" + res[ele].product_name + "\n| Price: $" + res[ele].price + "\t || Quantity:\t" + res[ele].stock_quantity + "");    
         }
+        connection.end();
     });
 }
 
@@ -58,7 +59,9 @@ function lowInventory(){
     var query = ("SELECT * FROM products WHERE stock_quantity BETWEEN 0 AND 5");
     connection.query(query, function(err, res){
         if(err) throw err;
-        console.log(res);
+        //console.log(res);
+        console.log("-------------------------------------------------");
+        console.log("| ID:\t" + res[0].item_id + "\t || Name:\t" + res[0].product_name +"\n| Price: $" + res[0].price + "\t || Quantity:\t" + res[0].stock_quantity)
         connection.end();
     });
 }
@@ -92,13 +95,14 @@ function addProduct(){
             message:"stock_quantity",
             name:"stock_quantity"
         }
-    ]).then(function(err, res){
-        if(err) throw err;
-        var query = "INSERT INTO products(item_id, product_name, department_name, price, stock_quantity) VALUES(" + res[0].item_id + "," + res[0].product_name + "," + res[0].department + "," + res[0].price + "," + res[0].stock_quantity + ")";
+    ]).then(function(res){
+        var query = "INSERT INTO products(item_id, product_name, department_name, price, stock_quantity) VALUES(" + parseInt(res.item_id) + "," + res.product_name + ",'" + res.department + "'," + parseFloat(res.price) + "," + parseInt(res.stock_quantity) + ")";
         console.log(query);
         connection.query(query, function(err, res){
             if(err) throw err;
             console.log(res);
+            connection.end();
         })
     })
+    
 }
