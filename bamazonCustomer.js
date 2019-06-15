@@ -39,14 +39,14 @@ function pickProduct(){
         }
     ]).then(function(response){
         //console.log(response.id + " || " + response.quantity);
-        console.log(parseInt(response.quantity));
+        //console.log(parseInt(response.quantity));
         doWeHaveEnough(response.id, parseInt(response.quantity));
     });
 }
 
 //7. Once the customer has placed the order, your application should check if your store has enough of the product to meet the customer's request.
 function doWeHaveEnough(id, quantity){
-    console.log(quantity);
+    //console.log(quantity);
     var query = "SELECT * FROM products WHERE ?";
     connection.query(query, {item_id: id}, function(err, res){
         if(err) throw err;
@@ -76,7 +76,29 @@ function product(id, quantity, stockQuantity, price){
         if(err) throw err;
         //   * Once the update goes through, show the customer the total cost of their purchase.
         console.log("Total Cost: $" + (price * quantity));
-        connection.end();
+        //2. Modify the products table so that there's a product_sales column, and modify your `bamazonCustomer.js` app so that when a customer purchases 
+        //   anything from the store, the price of the product multiplied by the quantity purchased is added to the product's product_sales column.
+
+        //   * Make sure your app still updates the inventory listed in the `products` column.
+        var initSalesQuery = "SELECT * FROM products WHERE ?";
+        connection.query(initSalesQuery, {item_id: id}, function(err, res){
+            if(err) throw err;
+            var totalSales = res[0].total_sales + (price * quantity);
+            var updateSalesQuery = "UPDATE products SET ? WHERE ?";
+            connection.query(updateSalesQuery,
+                [{
+                    total_sales: totalSales
+                }, {
+                    item_id: id
+                }], function(err, res){
+                    if(err) throw err;
+                    console.log(res.affectedRows + " updated row\n");
+                    connection.end();
+                });
+        });
+        
+        
     });
+    
 }
 
