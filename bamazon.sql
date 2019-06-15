@@ -64,3 +64,5 @@ VALUES(421, "Ben & Jerry's Half Baked Ice Cream", "Food", 3.99, 50, 0);
 
 SELECT * FROM products;
 
+SELECT * FROM departments;
+

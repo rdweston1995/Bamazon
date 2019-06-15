@@ -14,12 +14,9 @@ var connection = mysql.createConnection({
 var query = "SELECT * FROM products";
 connection.query(query, function(err, res){
     if(err) throw err;
-    //console.log(res.length);
 
-    for(ele in res){
-        //console.log("| ID: \t" + res[ele].item_id + "\t || Name: " + res[ele].product_name + " || Price: \t$" + res[ele].price + "\t|");
-        console.log("| ID: \t" + res[ele].item_id + "\t || Price: \t$" + res[ele].price + "\t || Name: " + res[ele].product_name);
-    };
+    console.table(res);
+
     pickProduct();
 });
 //6. The app should then prompt users with two messages.
