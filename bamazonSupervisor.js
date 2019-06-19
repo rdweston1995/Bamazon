@@ -11,6 +11,8 @@ var connection = mysql.createConnection({
     database: 'bamazon' 
  });
 
+ //addDepartments();
+
  menu();
 //3. Create another Node app called `bamazonSupervisor.js`. Running this application will list a set of menu options:
 function menu(){
@@ -18,11 +20,15 @@ function menu(){
         {
             type: 'list',
             message:'Menu Options:',
-            choices: ['View Product Sales by Department', 'Create New Department', 'Exit'],
+            choices: ['View Departments', 'View Product Sales by Department', 'Create New Department', 'Exit'],
             name: 'menuInput'
         }
     ]).then(function(res){
         switch(res.menuInput){
+            // View all the departments
+            case 'View Departments':
+                viewDepartments();
+                break;
             // View Product Sales by Department
             case 'View Product Sales by Department':
                 viewSales();
@@ -37,7 +43,15 @@ function menu(){
         }
     });
 }
-   
+
+function viewDepartments(){
+    var query = "SELECT * FROM departments";
+    connection.query(query, function(err, res){
+        if(err) throw err;
+        console.table(res);
+        menu();
+    });
+}
 
 //4. When a supervisor selects `View Product Sales by Department`, the app should display a summarized table in their terminal/bash window. 
 //   Use the table below as a guide.
@@ -85,6 +99,7 @@ function newDepartment(){
         connection.query(query, function(err, res){
             if(err) throw err;
             console.log(res.afftedRows + " row updated\n");
+            menu();
         })
     })
 }
@@ -92,4 +107,26 @@ function newDepartment(){
 function exit(){
     console.log("=============== EXITING ===============");
     connection.end();
+}
+
+function addDepartments(){
+    var query = "SELECT department_name FROM products GROUP BY department_name";
+    connection.query(query, function(err, res){
+        if (err) throw err;
+        
+        for(ele in res){
+            var query = "INSERT INTO departments (department_id, department_name, over_head_costs) VALUES (" + ele + ", " + res[ele].department_name +", " + 10000 + ")";
+            connection.query(query, function(err, res){
+                console.log("successful");
+            }); 
+        }
+        var query = "SELECT * FROM departments";
+        connection.query(query, function (err, res) {
+            if (err) throw err;
+            console.table(res);
+            connection.end();
+        });
+    });
+
+    
 }

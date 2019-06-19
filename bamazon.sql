@@ -62,7 +62,23 @@ VALUES (333, "Lord of the Rings Extended Trilogy", "Works from God", 50.99, 100,
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
 VALUES(421, "Ben & Jerry's Half Baked Ice Cream", "Food", 3.99, 50, 0);
 
+INSERT INTO departments(department_id, department_name, over_head_costs)
+VALUES (1, "Computer Parts", 50000);
+
+INSERT INTO departments(department_id, department_name, over_head_costs)
+VALUES (2, "Cleaning Supplies", 1000);
+
+INSERT INTO departments(department_id, department_name, over_head_costs)
+VALUES (3, "Food", 100000);
+
+INSERT INTO departments(department_id, department_name, over_head_costs)
+VALUES (5, "Books", 0);
+
+INSERT INTO departments(department_id, department_name, over_head_costs)
+VALUES (6, "Works from God", 100000000);
+
 SELECT * FROM products;
 
 SELECT * FROM departments;
+
 
