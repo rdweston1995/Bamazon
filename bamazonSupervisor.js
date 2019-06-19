@@ -56,7 +56,7 @@ function viewDepartments(){
 //4. When a supervisor selects `View Product Sales by Department`, the app should display a summarized table in their terminal/bash window. 
 //   Use the table below as a guide.
 function viewSales(){
-
+    
 }
 //| department_id | department_name | over_head_costs | product_sales | total_profit |
 //| ------------- | --------------- | --------------- | ------------- | ------------ |
