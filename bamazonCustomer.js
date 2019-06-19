@@ -1,5 +1,10 @@
+require("dotenv").config();
+var keys = require("./keys.js");
 var inquirer = require("inquirer");
 var mysql = require("mysql");
+
+
+//console.log(keys);
 
 //5. Then create a Node application called `bamazonCustomer.js`. Running this application will first display all of the items available for sale. 
 // Include the ids, names, and prices of products for sale.
@@ -7,7 +12,7 @@ var connection = mysql.createConnection({
    host: 'localhost',
    port: 3306,
    user: 'root',
-   password: 'Robobutt23!',
+   password: keys.key.password,
    database: 'bamazon' 
 });
 
