@@ -49,7 +49,7 @@ function doWeHaveEnough(id, quantity){
         if(err) throw err;
         //console.log(res[0].stock_quantity);
         if(res[0].stock_quantity >= quantity){
-            product(id, quantity, res[0].stock_quantity, res[0].price);
+            purchase(id, quantity, res[0].stock_quantity, res[0].price);
         }else{
             // If not, the app should log a phrase like `Insufficient quantity!`, and then prevent the order from going through.
             //console.log(res.stock_quantity + " || " + quantity);
@@ -60,7 +60,7 @@ function doWeHaveEnough(id, quantity){
 
 }
 //8. However, if your store _does_ have enough of the product, you should fulfill the customer's order.
-function product(id, quantity, stockQuantity, price){
+function purchase(id, quantity, stockQuantity, price){
     var updatedQuantity = stockQuantity - quantity;
     var query = "UPDATE products SET ? WHERE ?";
     //   * This means updating the SQL database to reflect the remaining quantity.

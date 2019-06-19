@@ -50,15 +50,11 @@ function menu(){
 
 //  * If a manager selects `View Products for Sale`, the app should list every available item: the item IDs, names, prices, and quantities.
 function products(){
-    console.log("=============== AVAILABLE PRODUCTS ===============");
+    //console.log("=============== AVAILABLE PRODUCTS ===============");
     var query = "SELECT * FROM products";
     connection.query(query, function(err, res){
         if(err) throw err;
-        for (ele in res){
-            console.log("-------------------------------------------------");
-            console.log("| ID:\t" + res[ele].item_id + "\t || Name:\t" + res[ele].product_name + "\n| Price: $" + res[ele].price + "\t || Quantity:\t" + res[ele].stock_quantity + "");    
-        }
-        //connection.end();
+        console.table(res);
         menu();
     });
 }
