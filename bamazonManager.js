@@ -11,10 +11,11 @@ var connection = mysql.createConnection({
     password: keys.key.password,
     database: 'bamazon' 
  });
- menu();
+ 
+menu();
 //  * List a set of menu options:
 //    * View Products for Sale 
-//    * View Low Inventory   
+//    * View Low Inventory  
 //    * Add to Inventory
 //    * Add New Product
 function menu(){
