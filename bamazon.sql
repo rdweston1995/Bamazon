@@ -18,7 +18,7 @@ CREATE TABLE products(
     --   * stock_quantity (how much of the product is available in stores)
     stock_quantity INT NULL,
     -- total_sales updates when a customer makes a purchase
-    total_sales DECIMAL(10,4) NULL
+    total_sales DECIMAL(65,2) NULL
 );
 
 -- 1. Create a new MySQL table called `departments`. Your table should include the following columns:
@@ -33,10 +33,10 @@ CREATE TABLE departments(
 
 -- 4. Populate this database with around 10 different products. (i.e. Insert "mock" data rows into this database and table).
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
-VALUES (1101, "Trash Bags", "Cleaing Supplies", 10.99, 2000, 0);
+VALUES (1101, "Trash Bags", "Cleaing Supplies", 10.99, 2000, 9001);
 
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
-VALUES (1102, "Intel i7 7700k 3.4ghz 8core CPU", "Computer Parts", 400.00, 10, 0);
+VALUES (1102, "Intel i7 7700k 3.4ghz 8core CPU", "Computer Parts", 400.00, 10, 30000);
 
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
 VALUES (9005, "NVIDIA GeForce 1080 6gb GPU", "Computer Parts", 650.00, 15, 0);
@@ -45,7 +45,7 @@ INSERT INTO products(item_id, product_name, department_name, price, stock_quanti
 VALUES (6006, 'Samsung 28" 144hz Computer Monitior', "Computer Parts", 250.00, 50, 0);
 
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
-VALUES (1, "Costco Pizza", "Food", 10.50, 10000, 0);
+VALUES (1, "Costco Pizza", "Food", 10.50, 10000, 55000);
 
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
 VALUES (2, "Costco Hot Dog Combo", "Food", 1.50, 20000, 0);
@@ -54,10 +54,10 @@ INSERT INTO products(item_id, product_name, department_name, price, stock_quanti
 VALUES (40, "Chicken Pot Pie", "Food", 3.99, 5000, 0);
 
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
-VALUES (666, "Bible", "Books", 6.66, 0, 0);
+VALUES (666, "Bible", "Books", 6.66, 0, 6666);
 
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
-VALUES (333, "Lord of the Rings Extended Trilogy", "Works from God", 50.99, 100, 0);
+VALUES (333, "Lord of the Rings Extended Trilogy", "Works from God", 50.99, 100, 999999);
 
 INSERT INTO products(item_id, product_name, department_name, price, stock_quantity, total_sales)
 VALUES(421, "Ben & Jerry's Half Baked Ice Cream", "Food", 3.99, 50, 0);
@@ -66,13 +66,13 @@ INSERT INTO departments(department_id, department_name, over_head_costs)
 VALUES (1, "Computer Parts", 50000);
 
 INSERT INTO departments(department_id, department_name, over_head_costs)
-VALUES (2, "Cleaning Supplies", 1000);
+VALUES (2, "Cleaning Supplies", 10000);
 
 INSERT INTO departments(department_id, department_name, over_head_costs)
-VALUES (3, "Food", 100000);
+VALUES (3, "Food/Drink", 100000);
 
 INSERT INTO departments(department_id, department_name, over_head_costs)
-VALUES (5, "Books", 0);
+VALUES (5, "Books", 10000);
 
 INSERT INTO departments(department_id, department_name, over_head_costs)
 VALUES (6, "Works from God", 100000000);

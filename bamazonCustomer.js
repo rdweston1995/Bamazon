@@ -94,7 +94,7 @@ function purchase(id, quantity, stockQuantity, price){
                     item_id: id
                 }], function(err, res){
                     if(err) throw err;
-                    console.log(res.affectedRows + " updated row\n");
+                    //console.log(res.affectedRows + " updated row\n");
                     connection.end();
                 });
         });

@@ -7,6 +7,8 @@ Deployment:
 
 Screenshots
 
+![bamazonCustomer gif] (https://gyazo.com/1d265bd7d5093d54c5d96de92e3ec785)
+
 Technologies Used:
 * NodeJS
 * Javascript
@@ -43,7 +45,7 @@ Functionality:
     * menu()
         * First thing that will be run in this file. Using inquirer will prompt the user to choose from a list of opitions what they want to do. Runs a switch statement using the user response to then run a function that matches the corresponding response. 
     * viewSales()
-        * Work in progress.
+        * Query the database to grab the departments table. Then will query the products table to grab the total sales grouping by department. Using a for each loop will create a table to display the department_id, department_name, over_head_costs and the total_sales. At the end of each row will display a newly created variable called total_profit which is given the value of the total_sales  - over_head_costs.
     * newDepartment()
         * Using inquirer prompt the user for the new department id, name, and overHeadCosts. Query the database to insert into the departments table the new department using the user response. 
     * exit()
