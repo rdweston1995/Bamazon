@@ -21,7 +21,7 @@ Author:
 
 Functionality:
 * bamazonCustomer.js
-![bamazonCustomer screenshot](/images/customer.png)
+    * ![bamazonCustomer screenshot](/images/customer.png)
     * Begins with a query to the SQL database to display the table of products that are available for purchase. Then will call pickProduct().
     * pickProduct()
         * Using inquirer will prompy the user for which product they want to purchase from the displayed table. Then will ask how many of that item that they want to purchase. Once both prompts are asked will call doWeHaveEnough() with the item number and quantity from the prompts as parameters.
@@ -33,10 +33,10 @@ Functionality:
     * menu()
         * First thing that will be run in this file. Using inquirer will prompt the user to choose from a list of opitions what they want to do. Runs a switch statement using the user response to then run a function that matches the corresponding response.
     * products()
-    ![bamazonManager screenshot](/images/managerView.png)
+        * ![bamazonManager screenshot](/images/managerView.png)
         * Query the database to display a table of all the current available products. Calls menu() at the end of the query.
     * lowInventory()
-    ![bamazonManager screenshot](/images/managerLow.png)
+        * ![bamazonManager screenshot](/images/managerLow.png)
         * Query the database looking for all items that are undering stock_quantity of 5. Displays all the items that fall in that search parameter. Calls menu() at the end of the query.
     * addInventory()
         * Using inquirer will prompt will ask what item id that they want to add to. Then will ask how much product they are wanting to add. Querys the database to select the product. Creates a new variable to add the current quantity to the amount being added to get the new total. Query the database again to update the stock_quantity to reflect the new current quantity. Calls menu() at the end of the query.
@@ -48,10 +48,10 @@ Functionality:
     * menu()
         * First thing that will be run in this file. Using inquirer will prompt the user to choose from a list of opitions what they want to do. Runs a switch statement using the user response to then run a function that matches the corresponding response. 
     * viewDepartments()
-    ![bamazonSupervisor screenshot](/images/supervisorView.png)
+        * ![bamazonSupervisor screenshot](/images/supervisorView.png)
         * Query the database to grab the departments table and then display the table.
     * viewSales()
-    ![bamazonSupervisor screenshot](/images/supervisorSales.png)
+        * ![bamazonSupervisor screenshot](/images/supervisorSales.png)
         * Query the database to grab the departments table. Then will query the products table to grab the total sales grouping by department. Using a for each loop will create a table to display the department_id, department_name, over_head_costs and the total_sales. At the end of each row will display a newly created variable called total_profit which is given the value of the total_sales  - over_head_costs.
     * newDepartment()
         * Using inquirer prompt the user for the new department id, name, and overHeadCosts. Query the database to insert into the departments table the new department using the user response. 
