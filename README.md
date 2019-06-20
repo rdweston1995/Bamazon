@@ -7,7 +7,7 @@ Deployment:
 
 Screenshots
 
-![bamazonCustomer gif] (https://gyazo.com/1d265bd7d5093d54c5d96de92e3ec785)
+
 
 Technologies Used:
 * NodeJS
@@ -20,6 +20,7 @@ Author:
 * Robert Weston
 
 Functionality:
+![bamazonCustomer screenshot](/customer.png)
 * bamazonCustomer.js
     * Begins with a query to the SQL database to display the table of products that are available for purchase. Then will call pickProduct().
     * pickProduct()
