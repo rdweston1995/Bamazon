@@ -1,0 +1,26 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "Mock inventory/purchasing database",
+  "main": "bamazonCustomer.js",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "inquirer": "^6.5.0",
+    "mysql": "^2.17.1",
+    "prompt": "^1.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rdweston1995/Bamazon.git"
+  },
+  "author": "rdweston1995",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rdweston1995/Bamazon/issues"
+  },
+  "homepage": "https://github.com/rdweston1995/Bamazon#readme"
+}
